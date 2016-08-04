@@ -298,7 +298,7 @@ class Table {
         if( ! is_null($view))
             $this->table_view = $view;
 
-	        //If there is an ajax option (new mode since datatable 1.10), do not use compatibility mode (Bruno de l'Escaille)
+	//If there is an ajax option (new mode since datatable 1.10), do not use compatibility mode (Bruno de l'Escaille)
      	if(!isset($this->options['sAjaxSource']) && !isset($this->options['ajax']))
         {
             $this->setUrl(Request::url());
