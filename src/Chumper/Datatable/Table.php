@@ -91,6 +91,7 @@ class Table {
         $this->noScript = $this->config['noScript'];
         $this->table_view = $this->config['table_view'];
         $this->script_view = $this->config['script_view'];
+        $this->datatableVersion = isset($this->config['datatableVersion']) ? $this->config['datatableVersion'] : '1.10';
     }
 
 
@@ -239,8 +240,18 @@ class Table {
      */
     public function setUrl($url)
     {
-        $this->options['sAjaxSource'] = $url;
-        $this->options['bServerSide'] = true;
+        if ($this->datatableVersion == '1.9') {
+          $this->options['sAjaxSource'] = $url;
+          $this->options['bServerSide'] = true;
+
+        } else {
+          $this->options['ajax']['url'] = $url;
+//          $this->options['serverSide'] = false;
+
+        }
+
+
+
         return $this;
     }
 
@@ -294,7 +305,7 @@ class Table {
      */
     public function getViewParameters()
     {
-        if(!isset($this->options['sAjaxSource']))
+        if(!isset($this->options['sAjaxSource']) and !isset($this->options['ajax']))
         {
             $this->setUrl(Request::url());
         }
@@ -304,9 +315,14 @@ class Table {
         {
             $this->createMapping();
         }
+
+
+
+        //dd($this->convertData(array_merge($this->options, $this->callbacks)));
         return array(
             'options' => $this->convertData(array_merge($this->options, $this->callbacks)),
             'values'    => $this->customValues,
+            'callbacks' => $this->callbacks,
             'data'      => $this->data,
             'columns'   => array_combine($this->aliasColumns,$this->columns),
             'noScript'  => $this->noScript,
