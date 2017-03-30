@@ -17,14 +17,26 @@ class DatatableServiceProvider extends ServiceProvider {
      *
      * @return void
      */
-    public function boot()
-    {
-        $this->publishes([
-            __DIR__.'/../../config/config.php' => config_path('chumper.datatable.php'),
-            __DIR__.'/../../views' => base_path('resources/views/vendor/chumper.datatable'),
-        ]);
+    // public function boot()
+    // {
+    //     $this->publishes([
+    //         __DIR__.'/../../config/config.php' => config_path('chumper.datatable.php'),
+    //         __DIR__.'/../../views' => base_path('resources/views/vendor/chumper.datatable'),
+    //     ]);
+		//
+    //     $this->loadViewsFrom(__DIR__ . '/../../views', 'chumper.datatable');
+		//
+    // }
 
-        $this->loadViewsFrom(__DIR__ . '/../../views', 'chumper.datatable');
+		public function boot()
+    {
+
+        $viewPath = __DIR__.'/../../views/';
+        $this->loadViewsFrom($viewPath, 'Chumper');
+        //$this->package('chumper/datatable');
+        $this->publishes([
+             $viewPath => base_path('resources/views/vendor/Chumper'),
+        ]);
 
     }
 
@@ -33,17 +45,21 @@ class DatatableServiceProvider extends ServiceProvider {
 	 *
 	 * @return void
 	 */
-    public function register()
-    {
 
-        $this->mergeConfigFrom(__DIR__.'/../../config/config.php', 'chumper.datatable');
+		public function register()
+		    {
 
-        $this->app['datatable'] = $this->app->share(function($app)
-        {
-            return new Datatable;
-        });
+		        $configPath = __DIR__.'/../../config/config.php';
+		        $this->publishes([$configPath => config_path('chumper_datatable.php'),]);
+		        $this->mergeConfigFrom($configPath, 'chumper_datatable');
 
-    }
+		        $this->app['datatable'] = $this->app->share(function($app)
+		        {
+		            return new Datatable;
+		        });
+		    }
+
+
 
     /**
      * Get the services provided by the provider.

@@ -93,7 +93,7 @@ return array(
         |
         */
 
-        'table_view' => 'chumper.datatable::template',
+        'table_view' => 'Chumper::template',
 
 
         /*
@@ -106,7 +106,9 @@ return array(
         |
         */
 
-        'script_view' => 'chumper.datatable::javascript',
+        'script_view' => 'Chumper::javascript',
+
+
     ),
 
 
@@ -131,16 +133,23 @@ return array(
 
         'exactWordSearch' => false,
 
-    ),
-    /*
-    |--------------------------------------------------------------------------
-    | Allow overrides Datatable core classes
-    |--------------------------------------------------------------------------
-    |
-    */
-    'classmap' => array(
-        'CollectionEngine' => 'Chumper\Datatable\Engines\CollectionEngine',
-        'QueryEngine' => 'Chumper\Datatable\Engines\QueryEngine',
-        'Table' => 'Chumper\Datatable\Table',
+        /*
+        |--------------------------------------------------------------------------
+        | Enable to display all records.
+        |--------------------------------------------------------------------------
+        |
+        | Be careful! It may be overloaded with large record.
+        | Supported: boolean
+        |
+        */
+        'enableDisplayAll' => false,
+        /*
+        |--------------------------------------------------------------------------
+        | Limit display when iDisplayLength invaild
+        |--------------------------------------------------------------------------
+        */
+        'defaultDisplayLength' => 10,
     )
+
+
 );

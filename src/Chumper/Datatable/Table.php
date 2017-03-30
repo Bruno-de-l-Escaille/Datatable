@@ -80,7 +80,8 @@ class Table {
 
     function __construct()
     {
-        $this->config = Config::get('chumper.datatable.table');
+        //$this->config = Config::get('chumper.datatable.table');
+        $this->config = Config('chumper_datatable.table');
 
         $this->setId( $this->config['id'] );
         $this->setClass( $this->config['class'] );
@@ -286,7 +287,7 @@ class Table {
 
         return View::make($this->table_view, $this->getViewParameters());
     }
-    
+
     /**
      * returns an array with the parameters that will be passed to the view when it's rendered
      * @return array
