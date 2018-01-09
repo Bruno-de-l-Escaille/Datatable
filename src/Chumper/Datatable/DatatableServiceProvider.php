@@ -53,7 +53,7 @@ class DatatableServiceProvider extends ServiceProvider {
 		        $this->publishes([$configPath => config_path('chumper_datatable.php'),]);
 		        $this->mergeConfigFrom($configPath, 'chumper_datatable');
 
-		        $this->->singleton('datatable',function($app)
+		        $this->app->singleton('datatable',function($app)
 		        {
 		            return new Datatable;
 		        });
