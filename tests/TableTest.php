@@ -15,7 +15,7 @@ class TableTest extends TestCase {
 
     protected function getEnvironmentSetUp($app)
     {
-        $app['config']->set('chumper.datatable.table', array(
+        $app['config']->set('chumper_datatable.table', array(
                 'class' => 'table table-bordered',
                 'id' => '',
                 'options' => array(

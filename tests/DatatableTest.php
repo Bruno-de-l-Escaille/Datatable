@@ -15,16 +15,16 @@ class DatatableTest extends \Orchestra\Testbench\TestCase {
     {
         parent::setUp();
         // set up config
-        Config::shouldReceive('get')->zeroOrMoreTimes()->with("chumper.datatable.engine")->andReturn(
+        Config::shouldReceive('get')->zeroOrMoreTimes()->with("chumper_datatable.engine")->andReturn(
             array(
                 'exactWordSearch' => false,
             )
         );
-        Config::shouldReceive('get')->zeroOrMoreTimes()->with("chumper.datatable.classmap.QueryEngine",NULL)->andReturn('Chumper\Datatable\Engines\QueryEngine');
-        Config::shouldReceive('get')->zeroOrMoreTimes()->with("chumper.datatable.classmap.CollectionEngine",NULL)->andReturn('Chumper\Datatable\Engines\CollectionEngine');
-        Config::shouldReceive('get')->zeroOrMoreTimes()->with("chumper.datatable.classmap.Table",NULL)->andReturn('Chumper\Datatable\Table');
+        Config::shouldReceive('get')->zeroOrMoreTimes()->with("chumper_datatable.classmap.QueryEngine",NULL)->andReturn('Chumper\Datatable\Engines\QueryEngine');
+        Config::shouldReceive('get')->zeroOrMoreTimes()->with("chumper_datatable.classmap.CollectionEngine",NULL)->andReturn('Chumper\Datatable\Engines\CollectionEngine');
+        Config::shouldReceive('get')->zeroOrMoreTimes()->with("chumper_datatable.classmap.Table",NULL)->andReturn('Chumper\Datatable\Table');
         
-        Config::shouldReceive('get')->zeroOrMoreTimes()->with("chumper.datatable.table")->andReturn(
+        Config::shouldReceive('get')->zeroOrMoreTimes()->with("chumper_datatable.table")->andReturn(
             array(
                 'class' => 'table table-bordered',
                 'id' => '',
