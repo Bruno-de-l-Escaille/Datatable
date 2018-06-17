@@ -151,5 +151,18 @@ return array(
         'defaultDisplayLength' => 10,
     )
 
+   ),
+     /*
+     |--------------------------------------------------------------------------
+     | Allow overrides Datatable core classes
+     |--------------------------------------------------------------------------
+     |
+     */
+     'classmap' => array(
+         'CollectionEngine' => 'Chumper\Datatable\Engines\CollectionEngine',
+         'QueryEngine' => 'Chumper\Datatable\Engines\QueryEngine',
+         'Table' => 'Chumper\Datatable\Table',
+      )  
+    
 
 );
