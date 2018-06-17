@@ -26,7 +26,7 @@ class CollectionEngineTest extends TestCase {
     
     protected function getEnvironmentSetUp($app)
     {
-        $app['config']->set('chumper.datatable.engine', array(
+        $app['config']->set('chumper_datatable.engine', array(
                 'exactWordSearch' => false,
             ));
     }
