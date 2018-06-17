@@ -4,10 +4,6 @@
         oTable = jQuery('#{!! $id !!}').dataTable(
             {!! $options !!}
         );
-    });
-</script>
-
-  oTable.addClass('table-striped ');
-
+        oTable.addClass('table-striped ');
     });
 </script>
