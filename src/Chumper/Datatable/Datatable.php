@@ -19,7 +19,7 @@ class Datatable {
      */
     public function query($query)
     {
-        $class = config('chumper.datatable.classmap.QueryEngine');
+        $class = config('chumper_datatable.classmap.QueryEngine');
         return new $class($query);
     }
 
@@ -29,7 +29,7 @@ class Datatable {
      */
     public function collection($collection)
     {
-        $class = config('chumper.datatable.classmap.CollectionEngine');
+        $class = config('chumper_datatable.classmap.CollectionEngine');
         return new $class($collection);
     }
 
@@ -38,7 +38,7 @@ class Datatable {
      */
     public function table()
     {
-        $class = config('chumper.datatable.classmap.Table');
+        $class = config('chumper_datatable.classmap.Table');
         return new $class();
     }
 
