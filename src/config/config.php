@@ -162,6 +162,4 @@ return array(
          'QueryEngine' => 'Chumper\Datatable\Engines\QueryEngine',
          'Table' => 'Chumper\Datatable\Table',
       )  
-    ),
-
 );
